@@ -1,0 +1,38 @@
+/* This has been added to style the map.js file but I do not believe it is being used */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Nunito", sans-serif;
+
+}
+.input{
+    text-align: center;
+    margin: 100px;
+}
+input[type="text"]{
+    height: 50px;
+    width: 600px;
+    background: #e7e7e7;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 10px;
+}
+input[type="submit"]{
+    height: 50px;
+    width: 100px;
+    background: #e7e7e7;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+}
+.display{
+    text-align: center;
+}
