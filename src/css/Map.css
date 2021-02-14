@@ -4,9 +4,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: "Nunito", sans-serif;
-
+.button{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+}
+.button:hover {
+    background-color: #3e8e41
 }
 .input{
     text-align: center;
@@ -16,23 +27,24 @@ input[type="text"]{
     height: 50px;
     width: 600px;
     background: #e7e7e7;
-    font-family: "Nunito", sans-serif;
+    font-family: "Nunito", Helvetica;
     font-weight: bold;
     font-size: 20px;
     border: none;
-    border-radius: 2px;
+    border-radius: 2px; 
     padding: 10px 10px;
 }
 input[type="submit"]{
     height: 50px;
     width: 100px;
     background: #e7e7e7;
-    font-family: "Nunito", sans-serif;
+    font-family: "Nunito", Helvetica;
     font-weight: bold;
     font-size: 20px;
     border: none;
     border-radius: 2px;
 }
 .display{
+    font-family: "Nunito", Helvetica;
     text-align: center;
 }
