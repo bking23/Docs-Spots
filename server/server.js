@@ -38,12 +38,17 @@ app.post('/login', (req,res)=>{
         const payload = ticket.getPayload();
         const userid = payload['sub'];
         const domain = payload['hd'];
+        console.log("From Towson: " + (domain == 'students.towson.edu'));
+        console.log("user-id: " + userid);
         console.log(payload);
+        console.log("token: " + token);
+        if (domain != 'students.towson.edu' && payload.email != 'jiarni@towson.edu')
+            token = {};
       }
       verify()
       .then(()=>{
           res.cookie('session-token', token);
-          res.send('success')
+          res.send('success');
       })
       .catch(console.error);
 
