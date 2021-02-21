@@ -20,10 +20,16 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
+    res.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+    res.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+    res.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
     res.render('index');
 })
 
 app.get('/login', (req,res)=>{
+    res.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+    res.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+    res.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
     res.render('login');
 })
 
@@ -56,16 +62,25 @@ app.post('/login', (req,res)=>{
 
 app.get('/housing', checkAuthenticated, (req, res)=>{
     let user = req.user;
+    res.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+    res.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+    res.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
     res.render('housing', {user});
 })
 
 app.get('/map', checkAuthenticated, (req, res)=>{
     let user = req.user;
+    res.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+    res.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+    res.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
     res.render('map', {user});
 })
 
 app.get('/profile', checkAuthenticated, (req, res)=>{
     let user = req.user;
+    res.setHeader("Cache-Control","no-cache"); //Forces caches to obtain a new copy of the page from the origin server
+    res.setHeader("Cache-Control","no-store"); //Directs caches not to store the page under any circumstance
+    res.setHeader("Pragma","no-cache"); //HTTP 1.0 backward compatibility
     res.render('profile', {user});
 })
 
@@ -99,9 +114,7 @@ function checkAuthenticated(req, res, next){
       .catch(err=>{
           res.redirect('/login')
       })
-
 }
-
 
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
