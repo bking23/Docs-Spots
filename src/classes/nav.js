@@ -14,7 +14,7 @@ class Nav extends React.Component{
           <li><a href="./">Home</a></li>
           <li><a href="./profile">Profile</a></li>
           <li><a href="./chat">Chat</a></li>
-          <li><a href="./map">Map</a></li>
+          <li><a href="./nearby">Nearby</a></li>
           <li><input class='searchbar' placeholder='search'/></li>
           <div class='buttons'>
             <li><button>Register</button></li>

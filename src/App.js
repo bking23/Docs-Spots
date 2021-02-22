@@ -10,7 +10,7 @@ import './css/App.css';
 import Home from './classes/home';
 import Profile from './classes/profile';
 import Chat from './classes/chat';
-import Map from './classes/map';
+import Nearby from './classes/nearby';
 
 class App extends React.Component {
   render() {
@@ -26,8 +26,8 @@ class App extends React.Component {
         <Route path="/chat" exact render={()=>{
           return(<Chat/>);
         }}/>
-        <Route path="/map" exact render={()=>{
-          return(<Map/>);
+        <Route path="/nearby" exact render={()=>{
+          return(<Nearby/>);
         }}/>
       </div>
     </Router>
