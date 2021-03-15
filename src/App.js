@@ -1,5 +1,7 @@
 import './App.css';
 import React from 'react';
+import Login from './components/Login';
+import Logout from './components/Logout';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/pages/Home';
@@ -12,6 +14,7 @@ function App(){
   return (
     <Router>
       <Navbar/>
+      < Login/>
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/profile' component={Profile} />

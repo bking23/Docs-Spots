@@ -9,12 +9,12 @@ function Contents() {
             <div className="cards_container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">
-                        <ContentItem 
+                        {/* <ContentItem 
                         // src="images/img-9.jpg"
                         text="Make an account today"
                         label="Account"
                         path="/register_login"
-                        />
+                        /> */}
                         <ContentItem 
                         src="pictures/img2.jpg"
                         text="Find out the weather in your area"
