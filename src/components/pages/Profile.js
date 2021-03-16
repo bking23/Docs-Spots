@@ -1,5 +1,6 @@
 import {React,useState} from 'react';
 import {Container} from 'reactstrap';
+import '../../App.css'
 
 function Profile(props){
   return(
