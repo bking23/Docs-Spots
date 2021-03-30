@@ -2,8 +2,8 @@ import React from 'react';
 import {Container} from 'reactstrap';
 import '../../App.css'
 
-
 function Chat(props){
+  // validate token. onFailure -> Login, onSuccess continue
   return(
     <Container>
       <h1>Chat</h1>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container,Row,Col} from 'reactstrap';
-import '../../App.css'
+import '../../App.css';
+import googleAuth from '../googleAuth.js';
 
 
 function Nearby(props){

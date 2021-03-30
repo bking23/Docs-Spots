@@ -1,10 +1,30 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {Link, useHistory, useLocation } from 'react-router-dom';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+import { useDispatch } from 'react-redux';
 import { Button } from './Button';
 import './Navbar.css';
 
 function Navbar(){
+    // const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+    // const [user, setUser] = useState(null);
+    // const dispatch = useDispatch();
+    // const history = useHistory();
+    // const location = useLocation();
+
+    // const logout = () => {
+    //     dispatch({ type: 'LOGOUT'});
+    //     localStorage.clear()
+    //     history.pushState('/');
+    //     setUser(null);
+    // };
+
+    // useEffect(() => {
+    //     const token = user?.token;
+
+    //     setUser(JSON.parse(localStorage.getItem('profile')));
+    // }, []);
+
   const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
     const handleClick = () => setClick(!click);

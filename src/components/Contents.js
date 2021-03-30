@@ -5,7 +5,7 @@ import './Contents.css'
 function Contents() {
     return (
         <div className="cards">
-            <h1>Check out what our site as to offer!</h1>
+            <h1>Check out what our site offers!</h1>
             <div className="cards_container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">
