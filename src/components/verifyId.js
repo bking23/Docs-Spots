@@ -3,8 +3,9 @@ const client = new OAuth2Client("736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.a
 
 const verifyId = async () => {
   var retVal = false;
+  var token = localStorage.getItem('token');
+  if (!!token){
   try{
-    let token = localStorage.getItem('token');
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com",
@@ -17,10 +18,13 @@ const verifyId = async () => {
     console.log("retVal = " + retVal);
     console.log(`User ${payload.name} ` + (retVal ? 'authorized' : 'rejected'));
   } catch (e) {
-    // console.log(e);
+    console.log(e);
   }
   console.log("verifyId: " + retVal);
+  if (retVal != true)
+  localStorage.clear();
    return retVal;
 };
+}
 // module.exports = verifyId;
 export default verifyId;

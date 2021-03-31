@@ -3,7 +3,7 @@ import React, { useContext, createContext, useState, Component } from 'react';
 import PrivateRoute from 'react-private-route';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import VerifyId from './components/verifyId';
+import verifyId from './components/verifyId';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/pages/Home';
@@ -24,7 +24,7 @@ export default function App(){
         {/* { isLoggedIn ? {isloggedIn = Login} : {isLoggedIn = !Logout} } */}
         <Login />
         <Logout />
-        <Log />
+        {/* <Log /> */}
         <Switch>
           <Route path='/' exact component={Home} />
           <ProtectedRoute path='/profile' comp={Profile} /> 
@@ -37,11 +37,15 @@ export default function App(){
   );
 }
 
-window.addEventListener('storage', () => {
-  // When local storage changes, dump the list to
-  // the console.
-  console.log('event listner: ' + JSON.parse(window.localStorage.getItem('')));
-});
+window.onstorage = () => {
+  try{
+    // console.log('event listner: ' + JSON.parse(window.localStorage.getItem('token')));
+    verifyId() ? console.log("verified") : localStorage.clear();
+  }catch (e){
+    console.log(e);
+    localStorage.clear();
+  }
+};
 
 
 // window.onStorageChange(verifyId);
@@ -60,13 +64,12 @@ window.addEventListener('storage', () => {
 
 const ProtectedRoute = ({
   comp: Component,
-  VerifyId,
   ...rest
 }) => (
   <Route
   {...rest}
   render={props =>
-  VerifyId ? (
+  localStorage.getItem('token') ? (
   <Component {...props} />
 ) : (
     <Redirect to="/" />
@@ -75,31 +78,9 @@ const ProtectedRoute = ({
   />
   );
 
- function Log(){
-    return (VerifyId() ? <button onClick={Logout}>Sign out</button> :  <button onClick={Login}>Sign in</button>)
-}
-
-// function ProtectedRoute({ children, ...rest }) {
-//   // let auth = useAuth();
-//   return (
-//     <Route
-//       {...rest}
-//       render={({ location }) =>
-//         // auth.user ? (
-//           verifyId ? (
-//           children
-//         ) : (
-//           <Redirect
-//             to={{
-//               pathname: "/",           // redirect to home 
-//               state: { from: location }
-//             }}
-//           />
-//         )
-//       }
-//     />
-//   );
-// }
+//  const Log = {
+//     render={(verifyId() ? <button onClick={Logout}>Sign out</button> :  <button onClick={Login}>Sign in</button>)}
+//  }
 
 // const [isLoggedIn, setIsLoggedIn] = useState(false);
 // setIsLoggedIn(verifyId());

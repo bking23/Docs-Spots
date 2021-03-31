@@ -1,0 +1,130 @@
+[33mcommit 1331b1b949427ffcd74f9c9c313cedae424ee6cc[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: James Naurot <naurotj@gmail.com>
+Date:   Wed Mar 31 15:22:46 2021 -0400
+
+    setting up protected routes, login/out part done
+
+[33mcommit d1201371c30f0530f765fe2f1d6f1cab70a62137[m
+Author: James Naurot <naurotj@gmail.com>
+Date:   Tue Mar 30 17:25:06 2021 -0400
+
+    going back
+
+[33mcommit 8efa9a96511a92bbd201a30976d3ca8c4d626848[m
+Author: James Naurot <naurotj@gmail.com>
+Date:   Mon Mar 15 17:08:44 2021 -0400
+
+    somewhat ok, going to try stuff
+
+[33mcommit 49c9f06e2af4e52033e57f4bf44ca9ae773f6d05[m[33m ([m[1;33mtag: starting_to_try_other_stuff[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Benjamin King <bking23@students.towson.edu>
+Date:   Sat Mar 13 15:55:43 2021 -0500
+
+    Added starter styling to the entire website
+
+[33mcommit f692dd27508f219bdcaeac5c5acc29d387a2650b[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Wed Mar 10 14:17:26 2021 -0500
+
+    restructure project oo to functional add bootstrap
+
+[33mcommit f2d18f65191d4516041ad49f71edf5ed608073b1[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Fri Feb 19 11:55:38 2021 -0500
+
+    Update server.js
+
+[33mcommit b31db64b4f021655bd80e12610fbad919f33c97a[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 21:45:05 2021 -0500
+
+    Update users.js
+
+[33mcommit 68070ac3f05147e9d8b53bc8d003dd7901a3a218[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 19:52:30 2021 -0500
+
+    Update server.js
+
+[33mcommit 58289f933fec3ca9e5954c5fd7e5436c70a5683e[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 19:51:44 2021 -0500
+
+    Update package.json
+
+[33mcommit 87d50b3c2d584d3c633e42e17da042bef34249a0[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 19:43:48 2021 -0500
+
+    Update package.json
+
+[33mcommit d02c20b1fcf418245fff0fdc00533d4b490fec68[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 19:27:19 2021 -0500
+
+    add cors origin URL
+
+[33mcommit 13641f2038edd23565feb72ab293b268682eb6d1[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 18:41:02 2021 -0500
+
+    establish mongodb connection, configure REST API endpoint for get/post users
+    
+    establish mongodb connection, configure REST API endpoint for get/post users
+
+[33mcommit 34ea9e62a2cebc3784baa4fa78808904ae126333[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Thu Feb 18 17:37:54 2021 -0500
+
+    Update .gitignore
+
+[33mcommit cdbd8542068e87ae885d791e8f2f5a9105a9ec4b[m
+Merge: 24bf0f4 60620ba
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Tue Feb 16 19:51:26 2021 -0500
+
+    Merge branch 'main' of github.com:johnbrichard/Docs-Spots into main
+
+[33mcommit 24bf0f4325a7c7988a931f9167fd8235fd309d55[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Tue Feb 16 19:50:04 2021 -0500
+
+    added stuff...idk
+
+[33mcommit 60620baec9fd6ceb560b831198252172d32eb0a9[m
+Author: arunkulkarni95 <arunkulkarni95@hotmail.com>
+Date:   Tue Feb 16 14:41:54 2021 -0500
+
+    Update .gitignore
+
+[33mcommit 9e6eeb79c337243a2f78c65ce755ddacbb83cd7e[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Thu Feb 11 13:15:50 2021 -0500
+
+    add React Router and reorg files
+
+[33mcommit eec778d639fe97fc158fb6fd1c72eaecc0ca1b65[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Wed Feb 10 10:44:00 2021 -0500
+
+    update README.md
+    
+    added project set up instructions.
+
+[33mcommit 29ae533bc33928e32e34cee6216051233736c395[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Tue Feb 9 22:19:26 2021 -0500
+
+    reorg files for CI/CD
+
+[33mcommit d00646f3cbd439c79ca95f9bb078858791d3da0b[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Tue Feb 9 22:11:18 2021 -0500
+
+    create base React/Node app
+
+[33mcommit 471e759e09a0915760832a20c42d7c7fe231b0eb[m
+Author: John Richard <john.b.richard@outlook.com>
+Date:   Tue Jan 26 19:32:54 2021 -0500
+
+    Initial commit
