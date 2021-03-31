@@ -1,172 +1,97 @@
 import './App.css';
-import React, { useContext, createContext, useState } from 'react';
-// import PrivateRoute from 'react-private-route';
+import React, { useContext, createContext, useState, Component } from 'react';
+import PrivateRoute from 'react-private-route';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import verifyId from './components/verifyId'
+import VerifyId from './components/verifyId';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
 import Chat from './components/pages/Chat';
 import Nearby from './components/pages/Nearby';
-import {BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocation} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocation, BrowserRouter} from 'react-router-dom';
+
 
 export default function App(){
+  const isLoggedIn = false;
   return (
-    // <ProvideAuth>
-      <Router>
-      <Navbar/>
-      <button onClick="logSomething()">{loggedIn}</button>
-      <Login/>
-      <Logout/>
-      <Switch>
-        <Route path='/' exact component={Home} />
-        {/* <PrivateRoute path='/profile' component={Profile}/> 
-        <PrivateRoute path='/chat' component={Chat} /> 
-        <PrivateRoute path='/nearby' component={Nearby} />  */}
-
-      <ProtectedRoute path='/profile' component={Profile}/> 
-      <ProtectedRoute path='/chat' component={Chat} /> 
-      <ProtectedRoute path='/nearby' component={Nearby} /> 
-        {/* <Route path='*' component={Home} /> */}
-      </Switch>
-      <Footer/> 
-      </Router>
-    // </ProvideAuth> 
+        <Router>
+        <Navbar/>
+        {/* <AuthButton /> */}
+        {/* <LogSomething /> */}
+        {/* <button onClick="LogSomething()">{true}</button> */}
+        {/* { isLoggedIn ? {isloggedIn = Login} : {isLoggedIn = !Logout} } */}
+        <Login />
+        <Logout />
+        <Log />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <ProtectedRoute path='/profile' comp={Profile} /> 
+          <ProtectedRoute path='/chat' comp={Chat} /> 
+          <ProtectedRoute path='/nearby' comp={Nearby} /> 
+          <Route path='*' component={Home} />
+        </Switch>
+        <Footer/> 
+        </Router>
   );
 }
 
-function logSomething(){
-  const [loggedIn, setLoggedIn] = useState('Login');
-  if (loggedIn === 'Login'){
-    if ({Login}){
-      setLoggedIn = 'Logout';
-    }
-  } else if ({Logout}){
-    setLoggedIn = 'Login';
-  }
-}
-
-// window.addEventListener('storage', () => {
-//   // When local storage changes, dump the list to
-//   // the console.
-//   console.log('event listner: ' + JSON.parse(window.localStorage.getItem('')));
-// });
-
-
-window.onstorage = () => {
+window.addEventListener('storage', () => {
   // When local storage changes, dump the list to
   // the console.
-  console.log(JSON.parse(window.localStorage.getItem('token')));
-};
+  console.log('event listner: ' + JSON.parse(window.localStorage.getItem('')));
+});
 
-class ProtectedRoute extends Route {
-  constructor(props){
-  super(props);
-  this.state = {authenticated: true}
-  }
-  render() {
-    const { component: Component, ...props } = this.props
 
-    return (
-      <Route 
-        {...props} 
-        render={props => (
-          this.state.authenticated ?
-            <Component {...props} /> :
-            <Redirect  to='/' />
-        )} 
-      />
-    )
-  }
-}
+// window.onStorageChange(verifyId);
 
-// const [isLoggedIn, setIsLoggedIn] = useState(false);
-// setIsLoggedIn(verifyId());
-// const authContext = createContext();
-
-// function useAuth() {
-//   return useContext(authContext);
-// }
-
-// const myAuth = {
-//   isAuthenticated: false,
-//   signin(cb) {
-//     myAuth.isAuthenticated = true;
-//     setTimeout(cb, 100); // fake async
-//   },
-//   signout(cb) {
-//     myAuth.isAuthenticated = false;
-//     setTimeout(cb, 100);
+// window.onStorageChange = () => {
+//   // When local storage changes, dump the list to
+//   // the console.
+//   console.log("storage changed");
+//   if (!verifyId()){
+//     localStorage.clear();
+//     console.log('storage changed, token present is not valid');
+//   } else {
+//     console.log("storage changed, token present is valid");
 //   }
 // };
 
-// function useProvideAuth() {
-//   const [user, setUser] = useState(null);
+const ProtectedRoute = ({
+  comp: Component,
+  VerifyId,
+  ...rest
+}) => (
+  <Route
+  {...rest}
+  render={props =>
+  VerifyId ? (
+  <Component {...props} />
+) : (
+    <Redirect to="/" />
+)
+  }
+  />
+  );
 
-//   const signin = cb => {
-//     return myAuth.signin(() => {
-//       setUser("user");
-//       cb();
-//     });
-//   };
+ function Log(){
+    return (VerifyId() ? <button onClick={Logout}>Sign out</button> :  <button onClick={Login}>Sign in</button>)
+}
 
-//   const signout = cb => {
-//     return myAuth.signout(() => {
-//       setUser(null);
-//       cb();
-//     });
-//   };
-
-//   return {
-//     user,
-//     signin,
-//     signout
-//   };
-// }
-
-// function ProvideAuth({ children }) {
-//   const auth = useProvideAuth();
-//   return (
-//     <authContext.Provider value={auth}>
-//       {children}
-//     </authContext.Provider>
-//   );
-// }
-
-// function AuthButton() {
-//   let history = useHistory();
-//   let auth = useAuth();
-
-//   return auth.user ? (
-//     <p>
-//       Welcome {auth.user}
-//       <button
-//         onClick={() => {
-//           auth.signout(() => history.push("/"));
-//         }}
-//       >
-//         Sign out
-//       </button>
-//     </p>
-//   ) : (
-//     <p></p>
-//   );
-// }
-
-// function PrivateRoute({ children, ...rest }) {
-//   let auth = useAuth();
+// function ProtectedRoute({ children, ...rest }) {
+//   // let auth = useAuth();
 //   return (
 //     <Route
 //       {...rest}
 //       render={({ location }) =>
-//         auth.user ? (
+//         // auth.user ? (
+//           verifyId ? (
 //           children
 //         ) : (
 //           <Redirect
 //             to={{
-//               pathname: "/login",
+//               pathname: "/",           // redirect to home 
 //               state: { from: location }
 //             }}
 //           />
@@ -175,3 +100,7 @@ class ProtectedRoute extends Route {
 //     />
 //   );
 // }
+
+// const [isLoggedIn, setIsLoggedIn] = useState(false);
+// setIsLoggedIn(verifyId());
+// const authContext = createContext();

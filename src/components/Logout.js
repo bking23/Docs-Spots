@@ -4,13 +4,13 @@ import { useGoogleLogout } from 'react-google-login';
 const clientId = "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com";
 
 function Logout(){
-  const onLogoutSuccess = (res) => {
+  const onLogoutSuccess = () => {
     localStorage.clear();
     alert("Logged out successfully");
   };
   const onFailure = () => {
     localStorage.clear();
-    console.log("there was a failure on logout");
+    console.log("Failure on logout");
   };
   const { signOut } = useGoogleLogout({
     clientId,
