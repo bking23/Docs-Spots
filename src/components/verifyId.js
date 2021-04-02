@@ -1,13 +1,19 @@
 const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client("736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com");
+
+const dotenv = require('dotenv').config();
+
+const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
+console.log('clientId: ' + clientId);
+const client = new OAuth2Client(clientId);
 
 const verifyId = async () => {
   var retVal = false;
+  var token = localStorage.getItem('token');
+  if (!!token){
   try{
-    let token = localStorage.getItem('token');
     const ticket = await client.verifyIdToken({
       idToken: token,
-      audience: "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com",
+      audience: clientId,
     });
     const payload = ticket.getPayload();
     console.log("in googleAuth");
@@ -17,10 +23,17 @@ const verifyId = async () => {
     console.log("retVal = " + retVal);
     console.log(`User ${payload.name} ` + (retVal ? 'authorized' : 'rejected'));
   } catch (e) {
-    // console.log(e);
+    console.log(e);
+    localStorage.clear();
   }
   console.log("verifyId: " + retVal);
+  if (retVal != true)
+  localStorage.clear();
    return retVal;
-};
+} else {
+  console.log("no token");
+  localStorage.clear();
+}
+}
 // module.exports = verifyId;
 export default verifyId;
