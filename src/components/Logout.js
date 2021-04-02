@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useGoogleLogout } from 'react-google-login';
-const dotenv = require('dotenv').config();
 
 const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
-// const clientId = "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com";
 
 function Logout(){
   const onLogoutSuccess = () => {

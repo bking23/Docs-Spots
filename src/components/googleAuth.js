@@ -10,7 +10,7 @@ const googleAuth = async () => {
   else {
     const ticket = await client.verifyIdToken({
       idToken: token,
-      audience: "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com",
+      audience: clientId,
     });
     const payload = ticket.getPayload();
     console.log("in googleAuth");

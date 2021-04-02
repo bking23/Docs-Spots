@@ -1,9 +1,6 @@
 const { OAuth2Client } = require('google-auth-library');
 
-const dotenv = require('dotenv').config();
-
 const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
-console.log('clientId: ' + clientId);
 const client = new OAuth2Client(clientId);
 
 const verifyId = async () => {

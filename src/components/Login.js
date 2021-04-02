@@ -3,14 +3,7 @@ import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 // var axios = require('axios');
 
-const dotenv = require('dotenv').config();
-
 const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
-
-console.log('process.env.React...: ' + process.env.REACT_APP_AUTH_CLIENT_ID);
-// const clientId = "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com";
-// console.log("clientId: " + clientId);
-
 
 function Login(){
   const onSuccess = (res) => {
