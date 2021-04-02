@@ -5,8 +5,10 @@ import { refreshTokenSetup } from '../utils/refreshToken';
 
 const dotenv = require('dotenv').config();
 
-// const clientId = dotenv.REACT_ENV_AUTH_CLIENT_ID;
-const clientId = "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com";
+const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
+
+console.log('process.env.React...: ' + process.env.REACT_APP_AUTH_CLIENT_ID);
+// const clientId = "736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com";
 // console.log("clientId: " + clientId);
 
 
@@ -14,12 +16,9 @@ function Login(){
   const onSuccess = (res) => {
     localStorage.clear();
     var isLoggedIn = false;
-    // console.log('Google verified gmail: ', res);
-    // console.log("Before login. current LoggedIn status: " + isLoggedIn);
     if (res.profileObj.email === "jirani@towson.edu" || res.profileObj.email.split("@")[1] === "students.towson.edu"){
       // console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}, token: ${res.tokenId}`);
       console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}`);
-      // console.log("just before refresh");
       refreshTokenSetup(res);
       isLoggedIn = true;
       localStorage.setItem('email', res.profileObj.email);

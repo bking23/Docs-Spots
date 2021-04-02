@@ -1,5 +1,7 @@
 const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client("736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com");
+
+const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
+const client = new OAuth2Client(clientId);
 
 const googleAuth = async () => {
   let token = localStorage.getItem('token');

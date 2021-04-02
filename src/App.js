@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useContext, createContext, useState, Component } from 'react';
-import PrivateRoute from 'react-private-route';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import verifyId from './components/verifyId';
@@ -14,17 +13,11 @@ import {BrowserRouter as Router, Switch, Route, Redirect, useHistory, useLocatio
 
 
 export default function App(){
-  const isLoggedIn = false;
   return (
         <Router>
         <Navbar/>
-        {/* <AuthButton /> */}
-        {/* <LogSomething /> */}
-        {/* <button onClick="LogSomething()">{true}</button> */}
-        {/* { isLoggedIn ? {isloggedIn = Login} : {isLoggedIn = !Logout} } */}
         <Login />
         <Logout />
-        {/* <Log /> */}
         <Switch>
           <Route path='/' exact component={Home} />
           <ProtectedRoute path='/profile' comp={Profile} /> 
@@ -48,20 +41,6 @@ window.onstorage = () => {
 };
 
 
-// window.onStorageChange(verifyId);
-
-// window.onStorageChange = () => {
-//   // When local storage changes, dump the list to
-//   // the console.
-//   console.log("storage changed");
-//   if (!verifyId()){
-//     localStorage.clear();
-//     console.log('storage changed, token present is not valid');
-//   } else {
-//     console.log("storage changed, token present is valid");
-//   }
-// };
-
 const ProtectedRoute = ({
   comp: Component,
   ...rest
@@ -77,11 +56,3 @@ const ProtectedRoute = ({
   }
   />
   );
-
-//  const Log = {
-//     render={(verifyId() ? <button onClick={Logout}>Sign out</button> :  <button onClick={Login}>Sign in</button>)}
-//  }
-
-// const [isLoggedIn, setIsLoggedIn] = useState(false);
-// setIsLoggedIn(verifyId());
-// const authContext = createContext();
