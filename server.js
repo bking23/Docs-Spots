@@ -7,7 +7,10 @@ const path = require('path');
 if (process.env.NODE_ENV !== "production") require('dotenv').config();
 
 const app = express();
+const server = http.createServer(app);
 const port = process.env.PORT || 5000;
+
+server.listen(PORT, () => console.log('Server has started on port ${PORT}'))
 
 app.use(cors());
 app.use(express.json());
