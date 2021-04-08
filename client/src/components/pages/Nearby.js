@@ -1,6 +1,7 @@
 import {React,useState,useEffect} from 'react';
 import {Col,Container,Row} from 'reactstrap';
 import {GoogleMap, LoadScript} from '@react-google-maps/api';
+import { Timeline } from 'react-twitter-widgets'
 
 function Nearby(props){
   const containerStyle = {
@@ -51,6 +52,15 @@ function Nearby(props){
           <Container className="display">
             <Row>
               <Col>
+                <Timeline
+                  dataSource={{
+                    sourceType: 'profile',
+                    screenName: 'TowsonU'
+                  }}
+                  options={{
+                    height: '400'
+                  }}
+                />
               </Col>
               <Col>
                 <h6>Weather in {location.city}:</h6>
