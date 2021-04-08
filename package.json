@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "docs-spots",
   "version": "0.1.0",
   "private": true,
@@ -18,14 +17,13 @@
     "react-scripts": "4.0.2",
     "reactstrap": "^8.9.0",
     "socket.io-client": "^3.1.1",
-    "web-vitals": "^1.1.0"
+    "web-vitals": "^1.1.0",
+    "react-twitter-widgets": "^1.10.0",
   },
-=======
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
->>>>>>> origin/main
   "scripts": {
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
