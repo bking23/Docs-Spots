@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useContext, createContext, useState, Component } from 'react';
-import Login from './components/Login';
-import Logout from './components/Logout';
+import Log from './components/Log';
+// import Login from './components/Login';
+// import Logout from './components/Logout';
 import verifyId from './components/verifyId';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,8 +17,10 @@ export default function App(){
   return (
         <Router>
         <Navbar/>
-        <Login />
-        <Logout />
+        {/* <Log /> */}
+        <h3 id="Loginout"><Log/><script> window.location.reload();</script></h3>
+        {/* <Login />
+        <Logout /> */}
         <Switch>
           <Route path='/' exact component={Home} />
           <ProtectedRoute path='/profile' comp={Profile} /> 
@@ -31,28 +34,18 @@ export default function App(){
 }
 
 window.onstorage = () => {
-  try{
-    // console.log('event listner: ' + JSON.parse(window.localStorage.getItem('token')));
-    verifyId() ? console.log("verified") : localStorage.clear();
-  }catch (e){
-    console.log(e);
-    localStorage.clear();
-  }
+  if (!verifyId())
+    sessionStorage.clear();
+  // window.location.reload();
+    // verifyId() ? console.log("verified token change") : sessionStorage.clear();
 };
 
 
-const ProtectedRoute = ({
-  comp: Component,
-  ...rest
-}) => (
+const ProtectedRoute = ({comp: Component, ...rest}) => (
   <Route
   {...rest}
   render={props =>
-  localStorage.getItem('token') ? (
-  <Component {...props} />
-) : (
-    <Redirect to="/" />
-)
+  sessionStorage.getItem('token') ? (<Component {...props} />) : (<Redirect to="/" />)
   }
   />
   );

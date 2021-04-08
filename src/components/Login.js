@@ -7,23 +7,23 @@ const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
 
 function Login(){
   const onSuccess = (res) => {
-    localStorage.clear();
+    sessionStorage.clear();
     var isLoggedIn = false;
     if (res.profileObj.email === "jirani@towson.edu" || res.profileObj.email.split("@")[1] === "students.towson.edu"){
       // console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}, token: ${res.tokenId}`);
-      console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}`);
-      refreshTokenSetup(res);
+      // console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}`);
+      // refreshTokenSetup(res);
       isLoggedIn = true;
-      localStorage.setItem('email', res.profileObj.email);
-      localStorage.setItem('name', res.profileObj.name);
-      localStorage.setItem('token', res.tokenId);
+      sessionStorage.setItem('email', res.profileObj.email);
+      sessionStorage.setItem('name', res.profileObj.name);
+      sessionStorage.setItem('token', res.tokenId);
     }
-    console.log("After login. current LoggedIn status: " + isLoggedIn);
+    // console.log("After login. current LoggedIn status: " + isLoggedIn);
     return isLoggedIn;
   };
 
   const onFailure = (res) => {
-    console.log('Google auth failed: ', res);
+    // console.log('Google auth failed: ', res);
     return false;
   };
 
@@ -38,7 +38,7 @@ function Login(){
   
  return (
     <button onClick={signIn}>
-      <p>Sign in with Google</p>
+      <p>Google Signin</p>
     </button>
   );
 }

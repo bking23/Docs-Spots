@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useGoogleLogout } from 'react-google-login';
+import { Redirect } from 'react-router';
 
 const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
 
 function Logout(){
   const onLogoutSuccess = () => {
-    localStorage.clear();
-    alert("Logged out successfully");
+    sessionStorage.clear();
+    <Redirect to="/" />
   };
   const onFailure = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     console.log("Failure on logout");
   };
   const { signOut } = useGoogleLogout({
@@ -18,9 +19,7 @@ function Logout(){
     onFailure,
   });
   return (
-    <button onClick={signOut} className="button">
-    <span className="buttonText">Sign out</span>
-    </button>
+    <button onClick={ signOut } >Sign out</button>
   );
 }
 export default Logout;

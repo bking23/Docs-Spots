@@ -4,7 +4,7 @@ const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
 const client = new OAuth2Client(clientId);
 
 const googleAuth = async () => {
-  let token = localStorage.getItem('token');
+  let token = sessionStorage.getItem('token');
   if (typeof token === 'undefined' || typeof token === 'null')
    return false
   else {
