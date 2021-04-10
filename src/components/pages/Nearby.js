@@ -26,6 +26,7 @@ function Nearby(props){
     desc:"Sunny"
   })
   useEffect(() => { 
+    console.log(process.env.REACT_APP_GOOGLE_MAPS_KEY)
     getWeather();
   }, [])
   var getWeather = () => {
@@ -51,38 +52,34 @@ function Nearby(props){
   return(
     <Container className="App-content">
       <h1>Nearby</h1>
-      <Container>
-        <Container>
-          <Container className="display">
-            <Row>
-              <Col>
-              <Timeline
-                dataSource={{
-                  sourceType: 'profile',
-                  screenName: 'TowsonU'
-                }}
-                options={{
-                  height: '400'
-                }}
-              />
-              </Col>
-              <Col>
-                <Row><Col>Weather in {location.city}</Col></Row>
-                <Row><Col>Description:</Col><Col>{weather.desc}</Col></Row>
-                <Row><Col>Temperature:</Col><Col>{weather.temp}&#176; F</Col></Row>
-                <Row><Col>Feels Like:</Col><Col>{weather.feels}&#176; F</Col></Row>
-                <Row><Col>Humidity:</Col><Col>{weather.hum}%</Col></Row>
-                <Row><Col>Sunrise:</Col><Col>{weather.sunrise}</Col></Row>
-                <Row><Col>Sunset:</Col><Col>{weather.sunset}</Col></Row>
-              </Col>
-              <Col>
-                <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_KEY}>
-                  <GoogleMap mapContainerStyle={containerStyle} zoom={15} center={location.coordinates}/>
-                </LoadScript>
-              </Col>
-            </Row>
-          </Container>
-        </Container>
+      <Container className="display">
+        <Row>
+          <Col>
+          <Timeline
+            dataSource={{
+              sourceType: 'profile',
+              screenName: 'TowsonU'
+            }}
+            options={{
+              height: '400'
+            }}
+          />
+          </Col>
+          <Col>
+            <Row><Col>Weather in {location.city}</Col></Row>
+            <Row><Col>Description:</Col><Col>{weather.desc}</Col></Row>
+            <Row><Col>Temperature:</Col><Col>{weather.temp}&#176; F</Col></Row>
+            <Row><Col>Feels Like:</Col><Col>{weather.feels}&#176; F</Col></Row>
+            <Row><Col>Humidity:</Col><Col>{weather.hum}%</Col></Row>
+            <Row><Col>Sunrise:</Col><Col>{weather.sunrise}</Col></Row>
+            <Row><Col>Sunset:</Col><Col>{weather.sunset}</Col></Row>
+          </Col>
+          <Col>
+            <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_KEY}>
+              <GoogleMap mapContainerStyle={containerStyle} zoom={15} center={location.coordinates}/>
+            </LoadScript>
+          </Col>
+        </Row>
       </Container>
     </Container>
   );
