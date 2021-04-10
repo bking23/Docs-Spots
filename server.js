@@ -27,9 +27,6 @@ const weatherRouter = require('./routes/api/weather');
 
 app.use('/users', usersRouter);
 app.use('/weather', weatherRouter);
-app.get('/map',(req,res)=>{
-  res.status(200).send(process.env.REACT_APP_GOOGLE_MAPS_KEY)
-});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));

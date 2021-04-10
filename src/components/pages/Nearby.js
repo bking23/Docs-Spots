@@ -4,8 +4,8 @@ import {React,useState,useEffect} from 'react'
 import {GoogleMap, LoadScript} from '@react-google-maps/api'
 
 function Nearby(props){
-  const API_URL='http://192.168.1.9';
-  const API_PORT=5000;
+  const API_URL=window.location.origin.replace(":3000","")
+  const API_PORT=process.env.PORT || 5000;
   const containerStyle = {
     width: '400px',
     height: '400px'
@@ -18,19 +18,18 @@ function Nearby(props){
     }
   }
   var [weather,setWeather]=useState({
-    temp:75,
-    feels: 70,
-    hum:30,
-    sunrise:1610380287270,
-    sunset:1610380287270,
+    temp:0,
+    feels: 0,
+    hum:0,
+    sunrise:18000,
+    sunset:18000,
     desc:"Sunny"
   })
   useEffect(() => { 
-    console.log(process.env.REACT_APP_GOOGLE_MAPS_KEY)
+    console.log(API_URL)
     getWeather();
   }, [])
   var getWeather = () => {
-    fetch(`${API_URL}:${API_PORT}/map`)
     fetch(`${API_URL}:${API_PORT}/weather?location=${location.city}`)
     .then(response=>response.json())
     .then(data => {
