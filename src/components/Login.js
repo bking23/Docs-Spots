@@ -17,6 +17,7 @@ function Login(){
       sessionStorage.setItem('email', res.profileObj.email);
       sessionStorage.setItem('name', res.profileObj.name);
       sessionStorage.setItem('token', res.tokenId);
+      window.location.reload();
     }
     // console.log("After login. current LoggedIn status: " + isLoggedIn);
     return isLoggedIn;

@@ -2,7 +2,7 @@ import './App.css';
 import React, { useContext, createContext, useState, Component } from 'react';
 import Log from './components/Log';
 // import Login from './components/Login';
-// import Logout from './components/Logout';
+import Logout from './components/Logout';
 import verifyId from './components/verifyId';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -17,8 +17,8 @@ export default function App(){
   return (
         <Router>
         <Navbar/>
-        {/* <Log /> */}
-        <h3 id="Loginout"><Log/><script> window.location.reload();</script></h3>
+        <Log />
+        <h4 id="Loginout"><Log/></h4>
         {/* <Login />
         <Logout /> */}
         <Switch>
@@ -35,7 +35,8 @@ export default function App(){
 
 window.onstorage = () => {
   if (!verifyId())
-    sessionStorage.clear();
+    Logout();
+    // sessionStorage.clear();
   // window.location.reload();
     // verifyId() ? console.log("verified token change") : sessionStorage.clear();
 };

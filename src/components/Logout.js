@@ -7,7 +7,7 @@ const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
 function Logout(){
   const onLogoutSuccess = () => {
     sessionStorage.clear();
-    <Redirect to="/" />
+    window.location.reload();
   };
   const onFailure = () => {
     sessionStorage.clear();

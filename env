@@ -1,0 +1,4 @@
+OPENWEATHER_API_KEY=d2b6e3f5f612a3cc89045215b59555f5
+REACT_APP_GOOGLE_MAPS_KEY=AIzaSyCNoUarkElsk9y7bS72JxnyA7V8Xl2vOZQ
+REACT_APP_AUTH_CLIENT_ID=736729752425-puvqvdfvlhiuptbfdeiej8bo93brjjmj.apps.googleusercontent.com
+MONGODB_URI=mongodb+srv://docs-spots:DocsSpots484!@cluster0.agbt2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
