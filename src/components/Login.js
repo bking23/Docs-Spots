@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 // var axios = require('axios');
@@ -12,7 +12,7 @@ function Login(){
     if (res.profileObj.email === "jirani@towson.edu" || res.profileObj.email.split("@")[1] === "students.towson.edu"){
       // console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}, token: ${res.tokenId}`);
       // console.log(`name: ${res.profileObj.name}, email: ${res.profileObj.email}`);
-      // refreshTokenSetup(res);
+      refreshTokenSetup(res);
       isLoggedIn = true;
       sessionStorage.setItem('email', res.profileObj.email);
       sessionStorage.setItem('name', res.profileObj.name);

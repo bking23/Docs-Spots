@@ -19,8 +19,6 @@ export default function App(){
         <Navbar/>
         <Log />
         <h4 id="Loginout"><Log/></h4>
-        {/* <Login />
-        <Logout /> */}
         <Switch>
           <Route path='/' exact component={Home} />
           <ProtectedRoute path='/profile' comp={Profile} /> 
@@ -36,9 +34,6 @@ export default function App(){
 window.onstorage = () => {
   if (!verifyId())
     Logout();
-    // sessionStorage.clear();
-  // window.location.reload();
-    // verifyId() ? console.log("verified token change") : sessionStorage.clear();
 };
 
 
@@ -46,7 +41,7 @@ const ProtectedRoute = ({comp: Component, ...rest}) => (
   <Route
   {...rest}
   render={props =>
-  sessionStorage.getItem('token') ? (<Component {...props} />) : (<Redirect to="/" />)
+    sessionStorage.getItem('token') ? (<Component {...props} />) : (<Redirect to="/" />)
   }
   />
   );
