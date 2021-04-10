@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "react-scripts build",
     "start": "(node server.js) & react-scripts start",
-    "dev": "npm install && npm start",
-    "heroku-postbuild": "npm install --only=dev && npm install && npm run build"
+    "dev": "npm install && npm fund && npm start",
+    "prod-test": "(npm run heroku-postbuild) && serve -s build & node server.js",
+    "heroku-postbuild": "npm install && npm fund && npm run build"
   },
   "engines": {
     "node": "14.15.4"

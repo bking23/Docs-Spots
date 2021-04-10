@@ -4,8 +4,8 @@ import {React,useState,useEffect} from 'react'
 import {GoogleMap, LoadScript} from '@react-google-maps/api'
 
 function Nearby(props){
-  const API_URL=window.location.origin.replace(":3000","")
-  const API_PORT=process.env.PORT || 5000;
+  const API_URL="http://localhost";
+  const API_PORT=5000;
   const containerStyle = {
     width: '400px',
     height: '400px'
