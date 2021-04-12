@@ -1,4 +1,3 @@
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -23,8 +22,10 @@ connection.once('open', () => {
 })
 
 const usersRouter = require('./routes/api/users');
+const weatherRouter = require('./routes/api/weather');
 
 app.use('/api/users', usersRouter);
+app.use('/api/weather', weatherRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
