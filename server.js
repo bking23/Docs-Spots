@@ -23,9 +23,11 @@ connection.once('open', () => {
 
 const usersRouter = require('./routes/api/users');
 const weatherRouter = require('./routes/api/weather');
+const reviewsRouter = require('./routes/api/reviews');
 
 app.use('/api/users', usersRouter);
 app.use('/api/weather', weatherRouter);
+app.use('/api/reviews', reviewsRouter);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
