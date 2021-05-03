@@ -8,21 +8,23 @@ router.get("/",(req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.options("/add",(req, res) => {
+router.post("/add",(req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const imgURL = req.body.imgURL;
 
   const newUser = new User({
-      name: name,
-      email: email,
-      imgURL: imgURL
+      name: req.body.name,
+      email: req.body.email,
+      imgURL: req.body.imgURL
   });
 
   newUser.save()
     .then(() => res.json('User added!'))
     .then(console.log("User added!"))
     .catch(err => res.status(400).json('Error: ' + err));
+
+    console.log(newUser);
 });
 
 module.exports = router;
