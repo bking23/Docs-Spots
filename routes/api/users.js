@@ -20,17 +20,15 @@ router.post("/add",(req, res) => {
 
   User.count({email: req.body.email}, function(err, count){
     if (count == 0){
-      newUser.save()
-    .then(() => res.json('User added!'))
-    .then(console.log("User added!"))
-    .catch(err => res.status(400).json('Error: ' + err));
-
+      newUser.save();
     console.log(newUser);
     }
     else{
-      console.log('User already exists.');
+      console.log('User already exists.')
     }
-  });
+  }).then(() => res.json('User added!'))
+  .then(console.log("User added!"))
+  .catch(err => res.status(400).json('Error: ' + err));
 
   
 });
