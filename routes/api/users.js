@@ -9,20 +9,14 @@ router.get("/",(req, res) => {
 });
 
 router.post("/add",(req, res) => {
-  const username = req.body.username;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const birthday = Date.parse(req.body.birthday);
-  const age = Number(req.body.age);
+  const name = req.body.name;
   const email = req.body.email;
+  const imgURL = req.body.imgURL;
 
   const newUser = new User({
-      username,
-      firstName,
-      lastName,
-      birthday,
-      age,
+      name,
       email,
+      imgURL
   });
 
   newUser.save()
