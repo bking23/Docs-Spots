@@ -16,12 +16,21 @@ router.post("/add",(req, res) => {
       imgURL: req.body.imgURL
   });
 
-  newUser.save()
+  User.count({email: req.body.email}, function(err, count){
+    if (count == 0){
+      newUser.save()
     .then(() => res.json('User added!'))
     .then(console.log("User added!"))
     .catch(err => res.status(400).json('Error: ' + err));
 
     console.log(newUser);
+    }
+    else{
+      console.log('User already exists.');
+    }
+  });
+
+  
 });
 
 module.exports = router;
