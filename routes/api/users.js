@@ -9,9 +9,6 @@ router.get("/",(req, res) => {
 });
 
 router.post("/add",(req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const imgURL = req.body.imgURL;
 
   const newUser = new User({
       name: req.body.name,
