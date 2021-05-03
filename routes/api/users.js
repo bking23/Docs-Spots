@@ -33,4 +33,28 @@ router.post("/add",(req, res) => {
   
 });
 
+//PUT - update user by ID
+router.put('/update', (req, res) => {
+  console.log('Request received at update')
+  User.findOne({email: req.body.email})
+      .then(user => {
+          user.username = req.body.username;
+          user.phone= req.body.phone;
+
+          user 
+              .save()
+              .then(() => res.json('User updated!'))
+              .catch(err => res.status(400).json(`Error: ${err}`));
+      })
+      .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
+//GET - get user by email
+router.get('/getByEmail', (req, res) => {
+  console.log('Request received at getByEmail')
+  User.findOne({email: req.body.email})
+      .then(user => res.json(user)).then(() => r)
+      .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
 module.exports = router;

@@ -16,6 +16,14 @@ const userSchema = new Schema({
   imgURL: {
     type: String,
     required: true
+  },
+  username: {
+    type: String,
+    required: false
+  },
+  phone: {
+    type: String,
+    required: false
   }
 }, {
   timestamps: true,
