@@ -8,15 +8,15 @@ router.get("/",(req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post("/add",(req, res) => {
+router.options("/add",(req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const imgURL = req.body.imgURL;
 
   const newUser = new User({
-      name,
-      email,
-      imgURL
+      name: name,
+      email: email,
+      imgURL: imgURL
   });
 
   newUser.save()
