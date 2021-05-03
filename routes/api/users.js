@@ -13,7 +13,9 @@ router.post("/add",(req, res) => {
   const newUser = new User({
       name: req.body.name,
       email: req.body.email,
-      imgURL: req.body.imgURL
+      imgURL: req.body.imgURL,
+      username: "",
+      phone: ""
   });
 
   User.count({email: req.body.email}, function(err, count){
